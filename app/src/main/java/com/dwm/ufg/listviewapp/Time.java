@@ -1,10 +1,12 @@
 package com.dwm.ufg.listviewapp;
 
-public class Time {
-    private String nome;
-    private String brasao;
+import java.io.Serializable;
 
-    public Time(String nome, String brasao) {
+public class Time implements Serializable {
+    private String nome;
+    private int brasao;
+
+    public Time(String nome, int brasao) {
         this.nome = nome;
         this.brasao = brasao;
     }
@@ -17,11 +19,11 @@ public class Time {
         this.nome = nome;
     }
 
-    public String getBrasao() {
+    public int getBrasao() {
         return brasao;
     }
 
-    public void setBrasao(String brasao) {
+    public void setBrasao(int brasao) {
         this.brasao = brasao;
     }
 

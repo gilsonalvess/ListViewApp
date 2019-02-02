@@ -37,18 +37,18 @@ public class TimeAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        View view = activity.getLayoutInflater()
+        View rowView = activity.getLayoutInflater()
                 .inflate(R.layout.lista_times_personalizada, parent, false);
 
         Time time = times.get(position);
 
-        TextView nome = (TextView) view.findViewById(R.id.lista_times_personalizada_nome);
-        ImageView img = (ImageView) view.findViewById(R.id.lista_times_personalizada_img);
+        TextView nome = (TextView) rowView.findViewById(R.id.lista_times_personalizada_nome);
+        ImageView img = (ImageView) rowView.findViewById(R.id.lista_times_personalizada_img);
 
         nome.setText(time.getNome());
-        img.setImageResource(R.drawable.b_palmeiras);
+        img.setImageResource(time.getBrasao());
 
 
-        return view;
+        return rowView;
     }
 }

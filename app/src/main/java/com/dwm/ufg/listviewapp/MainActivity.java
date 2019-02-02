@@ -1,5 +1,6 @@
 package com.dwm.ufg.listviewapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,11 +27,16 @@ public class MainActivity extends AppCompatActivity {
 
         lista.setAdapter(adaptador);
 
+        final Intent intent = new Intent(this, Main2Activity.class);
+
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Toast.makeText(getApplicationContext(),"Você clicou em: "+ times.get(position).getNome(),Toast.LENGTH_SHORT).show();
+                intent.putExtra("time", times.get(position));
+
+                startActivity(intent);
             }
         });
 
@@ -38,12 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Time> preencheDados() {
 
-        ArrayList<Time> listaDeTime = new ArrayList<Time>();
+        ArrayList<Time> listaDeTimes = new ArrayList<Time>();
 
-        listaDeTime.add(new Time("Palmeiras", "b_palmeiras"));
-        listaDeTime.add(new Time("Gremio", "b_gremio"));
-        listaDeTime.add(new Time("Santos", "b_santos"));
+        listaDeTimes.add(new Time("Palmeiras", R.drawable.b_palmeiras));
+        listaDeTimes.add(new Time("Gremio", R.drawable.b_gremio));
+        listaDeTimes.add(new Time("Santos", R.drawable.b_santos));
 
-       return listaDeTime;
+       return listaDeTimes;
     }
 }
